@@ -1,0 +1,53 @@
+databaseChangeLog:
+  - changeSet:
+      comment: Create table product
+      id: 2
+      author: admin
+      changes:
+        - createTable:
+            tableName: product
+            columns:
+              - column:
+                  name: product_id
+                  type: varchar(255)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  remarks: Unique identifier for the category
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: Product name
+              - column:
+                  name: description
+                  type: text
+                  remarks: Product description
+              - column:
+                  name: model_code
+                  type: varchar
+                  remarks: Model code
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_date
+                  type: timestamp without time zone
+                  remarks: Creation date
+              - column:
+                  name: updated_date
+                  type: timestamp without time zone
+                  remarks: Update date
+        - createSequence:
+            sequenceName: sequence-product_id
+            startValue: 2000000
+        - addDefaultValue:
+            tableName: product
+            columnName: product_id
+            defaultValueSequenceNext: sequence-product_id
+        - addForeignKeyConstraint:
+            baseTableName: product
+            baseColumnNames: model_code
+            constraintName: fk_model_code
+            referencedTableName: model
+            referencedColumnNames: model_code

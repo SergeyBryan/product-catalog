@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      comment: Create table model
+      id: 1
+      author: admin
+      changes:
+        - createTable:
+            tableName: model
+            columns:
+              - column:
+                  name: model_code
+                  type: varchar
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  remarks: Unique identifier for the model
+              - column:
+                  name: model_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: Model name
+              - column:
+                  name: model_description
+                  type: text
+                  remarks: Model description
+              - column:
+                  name: category_id
+                  type: varchar
+                  remarks: Category id
+              - column:
+                  name: created_date
+                  type: timestamp without time zone
+                  remarks: Creation date
+              - column:
+                  name: updated_date
+                  type: timestamp without time zone
+                  remarks: Update date
+        - createSequence:
+            sequenceName: sequence-model_code
+            startValue: 8000000
+        - addDefaultValue:
+            tableName: model
+            columnName: model_code
+            defaultValueSequenceNext: sequence-model_code
+        - addForeignKeyConstraint:
+            constraintName: fk-model-category_id
+            baseTableName: model
+            baseColumnNames: category_id
+            referencedTableName: category
+            referencedColumnNames: category_id

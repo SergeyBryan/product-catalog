@@ -1,0 +1,11 @@
+type Media{
+    mediaUuid: ID!
+    modelCode: String!
+    image: String!
+}
+
+input CreateMedia{
+    modelCode: String!
+    image: String!
+    sortOrder: Int
+}

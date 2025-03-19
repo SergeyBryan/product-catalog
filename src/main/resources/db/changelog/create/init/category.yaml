@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      comment:  Create table category
+      id: 0
+      author: admin
+      changes:
+        - createTable:
+            tableName: category
+            columns:
+              - column:
+                  name: category_id
+                  type: varchar(255)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  remarks: Unique identifier for the category
+              - column:
+                  name: category_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: Category name
+              - column:
+                  name: active
+                  type: bool
+                  remarks: Category active status
+              - column:
+                  name: created_date
+                  type: timestamp without time zone
+                  remarks: Creation date
+              - column:
+                  name: updated_date
+                  type: timestamp without time zone
+                  remarks: Update date
+        - createSequence:
+            sequenceName: sequence-category_id
+            startValue: 1
+        - addDefaultValue:
+            tableName: category
+            columnName: category_id
+            defaultValueSequenceNext: sequence-category_id

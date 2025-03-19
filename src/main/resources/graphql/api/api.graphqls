@@ -1,0 +1,25 @@
+type Query {
+    findByProductId(id: ID!): Product
+    findAllProducts : [Product]
+    findByModelCode(id:ID!) : Model
+    findAllModels : [Model]
+    findCategoryById(id: ID!): Category
+    findCategories: [Category]
+    getPrices(productId: ID!): [Price]
+    getMediaByModelCode(modelCode: ID!): [Media]
+}
+
+type Mutation {
+    #    CATEGORY
+    createCategory(category: CreateCategory!): Category
+    #    MODEL
+    createModel(model: CreateModel!): Model
+    #    PRODUCT
+    createProduct(product: CreateProduct!): Product
+    #    PRICE
+    updatePrice(price: UpdatePrice!): Price
+    updatePrices(priceList: [UpdatePrice]!): [Price]
+    #    MEDIA
+    createMedia(createMedia: CreateMedia!): Media
+    deleteMediaByModelCode(modelCode: String!): String
+}

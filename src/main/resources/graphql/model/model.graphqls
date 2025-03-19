@@ -1,0 +1,14 @@
+type Model{
+    modelCode: ID!
+    modelName: String!
+    modelDescription: String
+    categoryId: String!
+    products: [Product]
+    media: [Media]
+}
+
+input CreateModel {
+    modelName: String!
+    modelDescription: String
+    categoryId: String!
+}

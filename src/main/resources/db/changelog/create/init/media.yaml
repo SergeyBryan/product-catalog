@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      comment: Create table media
+      id: 4
+      author: admin
+      changes:
+        - createTable:
+            tableName: media
+            columns:
+              - column:
+                  name: media_uuid
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  remarks: UUID of the media
+              - column:
+                  name: model_code
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: Model code id
+              - column:
+                  name: media
+                  type: binary
+                  remarks: Product image (base64)
+              - column:
+                  name: sort_order
+                  type: integer
+                  remarks: Order number for display
+              - column:
+                  name: created_date
+                  type: timestamp without time zone
+                  remarks: Creation date
+              - column:
+                  name: updated_date
+                  type: timestamp without time zone
+                  remarks: Update date
+        - addForeignKeyConstraint:
+            constraintName: fk-model-media_id
+            baseTableName: media
+            baseColumnNames: model_code
+            referencedTableName: model
+            referencedColumnNames: model_code

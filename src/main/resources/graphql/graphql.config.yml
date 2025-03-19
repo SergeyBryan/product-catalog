@@ -1,0 +1,10 @@
+schema:
+  - category/category.graphqls
+  - model/model.graphqls
+  - product/product.graphqls
+  - image/media.graphqls
+  - price/price.graphqls
+  - api/api.graphqls
+documents:
+  - '**/**/*.graphqls'
+

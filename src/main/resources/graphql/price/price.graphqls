@@ -1,0 +1,23 @@
+type Price{
+    id: ID!
+    productId: String!
+    basePrice: Float
+    discountPrice: Float
+    purchasePrice: Float
+    contactPrice: Float
+    markup: String
+    margin: String
+    marginValue: Float
+}
+
+input UpdatePrice{
+    id: ID!
+    productId: String!
+    basePrice: Float!
+    discountPrice: Float
+    purchasePrice: Float!
+    contactPrice: Float!
+    markup: String
+    margin: String
+    marginValue: Float
+}

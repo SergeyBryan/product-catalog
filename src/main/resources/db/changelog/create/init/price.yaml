@@ -1,0 +1,69 @@
+databaseChangeLog:
+  - changeSet:
+      comment: Create table price
+      id: 3
+      author: admin
+      changes:
+        - createTable:
+            tableName: price
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  remarks: Unique identifier for the price
+              - column:
+                  name: product_id
+                  type: varchar
+                  constraints:
+                    nullable: false
+                  remarks: Product id
+              - column:
+                  name: base_price
+                  type: float
+                  remarks: Base price
+                  constraints:
+                    nullable: false
+              - column:
+                  name: discount_price
+                  type: float
+                  remarks: Discount price
+              - column:
+                  name: purchase_price
+                  type: float
+                  remarks: Purchase price
+                  constraints:
+                    nullable: false
+              - column:
+                  name: contract_price
+                  type: float
+                  remarks: Fixed price by two parties in a contractual agreement
+              - column:
+                  name: markup
+                  type: varchar(10)
+                  remarks: The amount added to the cost price of goods to cover overheads and profit
+              - column:
+                  name: margin
+                  type: varchar(10)
+                  remarks: Margin in percentage
+              - column:
+                  name: marginValue
+                  type: float
+                  remarks: Margin in value
+              - column:
+                  name: created_date
+                  type: timestamp without time zone
+                  remarks: Creation date
+              - column:
+                  name: updated_date
+                  type: timestamp without time zone
+                  remarks: Update date
+        - addForeignKeyConstraint:
+            constraintName: fk_product_id
+            baseTableName: price
+            baseColumnNames: product_id
+            referencedTableName: product
+            referencedColumnNames: product_id
