@@ -1,6 +1,3 @@
-Here’s a comprehensive README based on the details you’ve shared about your "product-category" project:
-
-```markdown
 # Product Category Management System
 
 ## Project Title
