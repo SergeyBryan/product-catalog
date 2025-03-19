@@ -184,12 +184,6 @@ query {
 2. **GraphQL Errors**: Check the GraphQL query syntax. Make sure all required fields are provided in queries or mutations.
 3. **PostgreSQL Version**: Ensure that the PostgreSQL version matches the one compatible with the `postgresql` JDBC driver used.
 
-## Contributors
-
-- **Your Name** (Lead Developer)  
-- **Contributor Name** (Contributor)  
-- **Contributor Name** (Contributor)
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
